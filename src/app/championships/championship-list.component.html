@@ -1,0 +1,29 @@
+<h3>{{ pageTitle }}</h3>
+<div class="table-responsive">
+    <table class="table" *ngIf="championships && championships.length">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Seria</th>
+                <th>Season</th>
+                <th>Sport</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let championship of championships">
+                <td>{{ championship.id }}</td>
+                <td>{{ championship.name }}</td>
+                <td>{{ championship.startDate }}</td>
+                <td>{{ championship.endDate }}</td>
+                <td>{{ championship.seria ? championship.seria.name : "" }}</td>
+                <td>{{ championship.season ? championship.season.name : "" }}</td>
+                <td>{{ championship.event && championship.event.sport ? championship.event.sport.name : "" }}</td>
+                <td><a [routerLink]="['/championship', championship.id]"><span class="glyphicon glyphicon-pencil"></span></a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
